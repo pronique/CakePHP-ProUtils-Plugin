@@ -1,6 +1,6 @@
 # ProUtils Plugin for CakePHP 2.1 #
 
-The ProUtils plugin is a growing collection of useful components, behaviors, helpers, and libraries. Here we will list and detail each component.
+The ProUtils plugin is a growing collection of useful components, behaviors, helpers, and libraries.
 
 > Note: This CakePHP plugin is designed to work with CakePHP 2.1, this requirement is dictated by the implementation
 > of CakePHP 2.1's Events System.  Most components should work with CakePHP 2.0 with little or no modifications. 
