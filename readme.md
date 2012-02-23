@@ -127,6 +127,20 @@ Events Fired by this EventDispatcher behavior
 
 * ProTemplateCompiler       - Compile a document from a template and data array.
 
+## ProTemplateCompiler ##
+
+This class can be used anywhere within CakePHP, the syntax for a variable is 
+{$myVariable} where array('myVariable'=>'foo') is the value that will replace it. 
+
+    App::uses('ProTemplateCompiler', 'Lib');
+    
+    $template = 'Hello {$User.first_name}, this is an example of ProTemplateCompile.';
+    $data = array( 'User'=> array( 'first_name'=>'John', 'last_name'=>'Doe' ) ;    
+    $Compiler = new ProTemplateCompiler( $template );
+
+    echo $Compiler->compile( $data );
+    // Output: Hello John Doe, this is an example of ProTemplateCompile.
+    
 ## Installation ##
 
     git clone https://github.com/pronique/CakePHP-ProUtils app/Plugin/ProUtils
