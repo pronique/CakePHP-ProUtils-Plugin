@@ -55,6 +55,10 @@ Each of the above can be configured with three options
 * disable - Turn on/off Event dispatching for a specific callback, default false.
 * eventName - The event name dispatched, default Model.ModelName.callbackName.
 * onPropagationStop - Defines how a stopped event will be handled, default varies, see example below.
+** 'continue' - on Event stop, discontinue processing further listeners but does not abort the callback.
+** 'abort' - on Event stop, discontinue processing further listeners, and aborts the callback.
+** 'die' - on Event stop die()
+** 'exception' - on Event stop throw an exception
 
 Fired Events          
 
