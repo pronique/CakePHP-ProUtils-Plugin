@@ -143,9 +143,11 @@ public $actsAs = array( 'ProUtils.Revisionable' );
 ```
 
 You will need to create an adjacent Model and table to use this behavior.  So
-if you wanted to track revision changes to the Model Users, create the Model
+if you wanted to track revision changes to the Model User, create the Model
 UserRev and the table user_revs.  The revisions table should contain a user_id
-column and for performance this column should be indexed.
+column and for performance this column should be indexed.  Another example,
+for Model Post, create the Model PostRev and the table post_revs with the
+int column post_id (indexed).
 
 I plan to add the following features to Revisionable in the near future.
 
