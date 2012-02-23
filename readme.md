@@ -6,6 +6,7 @@ The ProUtils plugin is a growing collection of useful components, behaviors, hel
 
 * CsvExport        - adds the ability to export csv data from the model.
 * EventDispatcher        - adds CakeEvent dispatchers for all common Model callbacks.
+* Revisionable        - maintains a versioned copy of each record change in another table.
 
 ### CsvExportBehavior ###
 
@@ -126,6 +127,28 @@ Events Fired by this EventDispatcher behavior
 * Model.ModelName.beforeDelete
 * Model.ModelName.afterDelete
 * Model.ModelName.beforeValidate
+
+### RevisionableBehavior ###
+
+Currently this Behavior is not aware of multi record inserts, conside this unstable code for now.
+
+Example Usage within your model
+    
+```php
+public $actsAs = array( 'ProUtils.Revisionable' );
+```
+
+You will need to create an adjacent Model and table to use this behavior.  So
+if you wanted to track revision changes to the Model Users, create the Model
+UserRev and the table user_revs.  The revisions table should contain a user_id
+column and for performance this column should be indexed.
+
+I plan to add the following features to Revisionable in the near future.
+
+* Finder methods
+* Revision limit, keep x number of past revisions
+* The option to only copy certain columns in revisions
+* CakePHP 2.1 event dispatchers so that other plugins can hook this Behavior
 
 ## Libraries ##
 

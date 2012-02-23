@@ -272,7 +272,7 @@ class EventDispatcherBehavior extends ModelBehavior {
                 default:
             } //end switch
         } //end if    
-        return $results;      
+        return true;      
     }
 
     /**
@@ -301,5 +301,13 @@ class EventDispatcherBehavior extends ModelBehavior {
             } //end switch
         } //end if
         return true;
-    }    
+    }  
+    
+    /**
+    * TODO add event for onError callback
+    * 
+    */
+    /* public function onError( $Model ) {
+        
+    } */  
 }
