@@ -2,6 +2,10 @@
 
 The ProUtils plugin is a growing collection of useful components, behaviors, helpers, and libraries. Here we will list and detail each component.
 
+Note: The plugin is designed to work with CakePHP 2.1, this requirement is dictated by the implementation
+of CakePHP 2.1's Events System.  Most components should work with 2.0 with little or no modifications. 
+The plugin is not backwards compatiable with 1.3 or 1.2 and never will be.
+
 ## Behaviors
 
 * CsvExport        - adds the ability to export csv data from the model.
