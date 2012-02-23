@@ -134,7 +134,7 @@ Events Fired by this EventDispatcher behavior
 
 ### RevisionableBehavior ###
 
-Currently this Behavior is not aware of multi record inserts, conside this unstable code for now.
+> Currently the RevisionableBehavior is not aware of multi record inserts, conside this unstable code for now.
 
 Example Usage within your model
     
