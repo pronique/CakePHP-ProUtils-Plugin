@@ -71,47 +71,51 @@ Each of the above can be configured with three options
 
 Example Usage within your model
     
-    public $actsAs = array( 'ProUtils.EventDispatcher' );
-    
+```php
+public $actsAs = array( 'ProUtils.EventDispatcher' );
+```
+
 Example Usage with all default configuration values
 
-    public $actsAs = array( 'ProUtils.EventDispatcher'=>array(
-        'beforeFind' => array(
-            'disable'=>false,
-            'eventName'=>'Model.{alias}.beforeFind',
-            'onStopPropagation'=>'continue'
-        ),
-        'afterFind' => array(
-            'disable'=>false,
-            'eventName'=>'Model.{alias}.afterFind',
-            'onStopPropagation'=>'continue'
-        ),
-        'beforeSave' => array(
-            'disable'=>false,
-            'eventName'=>'Model.{alias}.beforeSave',
-            'onStopPropagation'=>'abort'
-        ),
-        'afterSave' => array(
-            'disable'=>false,
-            'eventName'=>'Model.{alias}.afterSave',
-            'onStopPropagation'=>'continue'
-        ),
-        'beforeDelete' => array(
-            'disable'=>false,
-            'eventName'=>'Model.{alias}.beforeDelete',
-            'onStopPropagation'=>'abort'
-        ),
-        'afterDelete' => array(
-            'disable'=>false,
-            'eventName'=>'Model.{alias}.afterDelete',
-            'onStopPropagation'=>'continue'
-        ),
-        'beforeValidate' => array(
-            'disable'=>false,
-            'eventName'=>'Model.{alias}.beforeValidate',
-            'onStopPropagation'=>'abort'
-        )
-    ) );
+```php
+public $actsAs = array( 'ProUtils.EventDispatcher'=>array(
+    'beforeFind' => array(
+        'disable'=>false,
+        'eventName'=>'Model.{alias}.beforeFind',
+        'onStopPropagation'=>'continue'
+    ),
+    'afterFind' => array(
+        'disable'=>false,
+        'eventName'=>'Model.{alias}.afterFind',
+        'onStopPropagation'=>'continue'
+    ),
+    'beforeSave' => array(
+        'disable'=>false,
+        'eventName'=>'Model.{alias}.beforeSave',
+        'onStopPropagation'=>'abort'
+    ),
+    'afterSave' => array(
+        'disable'=>false,
+        'eventName'=>'Model.{alias}.afterSave',
+        'onStopPropagation'=>'continue'
+    ),
+    'beforeDelete' => array(
+        'disable'=>false,
+        'eventName'=>'Model.{alias}.beforeDelete',
+        'onStopPropagation'=>'abort'
+    ),
+    'afterDelete' => array(
+        'disable'=>false,
+        'eventName'=>'Model.{alias}.afterDelete',
+        'onStopPropagation'=>'continue'
+    ),
+    'beforeValidate' => array(
+        'disable'=>false,
+        'eventName'=>'Model.{alias}.beforeValidate',
+        'onStopPropagation'=>'abort'
+    )
+));
+```
     
 Events Fired by this EventDispatcher behavior          
 
@@ -127,23 +131,26 @@ Events Fired by this EventDispatcher behavior
 
 * ProTemplateCompiler       - Compile a document from a template and data array.
 
-## ProTemplateCompiler ##
+### ProTemplateCompiler ###
 
 This class can be used anywhere within CakePHP, the syntax for a variable is 
 {$myVariable} where array('myVariable'=>'foo') is the value that will replace it. 
 
-    App::uses('ProTemplateCompiler', 'Lib');
-    
-    $template = 'Hello {$User.first_name}, this is an example of ProTemplateCompile.';
-    $data = array( 'User'=> array( 'first_name'=>'John', 'last_name'=>'Doe' ) ;    
-    $Compiler = new ProTemplateCompiler( $template );
+Example Usage
 
-    echo $Compiler->compile( $data );
-    // Output: Hello John Doe, this is an example of ProTemplateCompile.
-    
+```php
+App::uses('ProTemplateCompiler', 'Lib');
+
+$template = 'Hello {$User.first_name}, this is an example of ProTemplateCompile.';
+$data = array( 'User'=> array( 'first_name'=>'John', 'last_name'=>'Doe' ) ;    
+$Compiler = new ProTemplateCompiler( $template );
+
+echo $Compiler->compile( $data );
+// Output: Hello John Doe, this is an example of ProTemplateCompile.
+``` 
 ## Installation ##
 
-    git clone https://github.com/pronique/CakePHP-ProUtils app/Plugin/ProUtils
+    sudo git clone https://github.com/pronique/CakePHP-ProUtils app/Plugin/ProUtils
     
     //Enable plugin in app/Config/bootstrap.php
     CakePlugin::load('ProUtils');
