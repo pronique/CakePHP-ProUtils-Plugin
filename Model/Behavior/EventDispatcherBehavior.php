@@ -217,7 +217,7 @@ class EventDispatcherBehavior extends ModelBehavior {
                 default:
             } //end switch
         } //end if    
-        return $results;      
+        return true;      
     }
     
     /**
