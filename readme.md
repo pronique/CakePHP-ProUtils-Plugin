@@ -113,7 +113,7 @@ Example Usage with all default configuration values
         )
     ) );
     
-Fired Events by this behavior          
+Events Fired by this EventDispatcher behavior          
 
 * Model.ModelName.beforeFind
 * Model.ModelName.afterFind
