@@ -38,8 +38,17 @@ Export data and present as a file download from your controller
     
 ### EventDispatcherBehavior ###
 
-Uses the CakePHP 2.1 Events System to dispatch events for all of the common Model callbacks.
+Uses the CakePHP 2.1 Events System to dispatch events for all of the
+common Model callbacks.
  
+Event listeners that register for an Event will have access to the
+$Model instance as the $Event->subject(), and some callbacks also 
+present addition arguments dictated by the specific callback. For
+more info read http://book.cakephp.org/2.0/en/core-libraries/events.html
+
+Config parameters can disable certain events alltogether, or change the
+behavior of the Model when an Event is canceled by a listener. 
+
 You can configure the EventDispatcher behavior using these options:
 
 * beforeFind
@@ -59,20 +68,6 @@ Each of the above can be configured with three options
 ** 'abort' - on Event stop, discontinue processing further listeners, and aborts the callback.
 ** 'die' - on Event stop die()
 ** 'exception' - on Event stop throw an exception
-
-Fired Events          
-
-* Model.{alias}.beforeFind     onPropagationStop = continue
-* Model.{alias}.afterFind      onPropagationStop = continue
-* Model.{alias}.beforeSave     onPropagationStop = abort
-* Model.{alias}.afterSave      onPropagationStop = continue
-* Model.{alias}.beforeDelete   onPropagationStop = abort
-* Model.{alias}.afterDelete    onPropagationStop = continue
-* Model.{alias}.beforeValidate onPropagationStop = abort
-
-Config parameters can disable certain events alltogether, or
-change the behavior of the Model when an Event is canceled
-by a listener.
 
 Example Usage within your model
     
@@ -118,6 +113,16 @@ Example Usage with all default configuration values
         )
     ) );
     
+Fired Events by this behavior          
+
+* Model.ModelName.beforeFind
+* Model.ModelName.afterFind
+* Model.ModelName.beforeSave
+* Model.ModelName.afterSave
+* Model.ModelName.beforeDelete
+* Model.ModelName.afterDelete
+* Model.ModelName.beforeValidate
+
 ## Libraries ##
 
 * ProTemplateCompiler       - Compile a document from a template and data array.
