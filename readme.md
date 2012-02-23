@@ -122,7 +122,7 @@ public $actsAs = array( 'ProUtils.EventDispatcher'=>array(
 ));
 ```
     
-Events Fired by this EventDispatcher behavior          
+Events Fired by the EventDispatcher behavior          
 
 * Model.ModelName.beforeFind
 * Model.ModelName.afterFind
@@ -194,7 +194,7 @@ echo $Compiler->compile( $data );
 
 ## License ##
 
-Copyright 2011-2012, [PRONIUQE Software](http://pronique.com)
+Copyright 2011-2012, [PRONIQUE Software](http://pronique.com)
 
 Licensed under [The MIT License](http://www.opensource.org/licenses/mit-license.php)<br/>
 Redistributions of files must retain the above copyright notice.
