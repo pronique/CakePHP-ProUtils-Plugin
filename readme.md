@@ -2,7 +2,7 @@
 
 The ProUtils plugin is a growing collection of useful components, behaviors, helpers, and libraries. Here we will list and detail each component.
 
-## Behaviors ## 
+## Behaviors
 
 * CsvExport        - adds the ability to export csv data from the model.
 * EventDispatcher        - adds the ability to export csv data from the model.
@@ -19,9 +19,11 @@ You can configure the CsvExport behavior using these options:
 * max_execution_time - Extend the execution time for larger datasets, default is 360
 
 The main method of this behavior is
+    
     $csvdata = $this->Model->exportCSV();
 
 Enable within your model
+    
     public $actsAs = array( 'ProUtils.CsvExport' );
 
 Export data and present as a file download from your controller
