@@ -36,8 +36,8 @@ class RevisionableBehavior extends ModelBehavior {
     public function setup(Model &$Model, $settings = array()) {
         if (!isset($this->settings[$Model->alias])) {
             $this->settings[$Model->alias] = array(
-                'className' => '{alias}Rev',
-                'tableName' => '{useTable}_revs',
+                'className' => '{alias}Revision',
+                'tableName' => '{useTable}_revisions',
                 'foreignKey' => '{alias}_id',
                 'autoCreate'=> false
             );
