@@ -5,7 +5,7 @@ The ProUtils plugin is a growing collection of useful components, behaviors, hel
 ## Behaviors
 
 * CsvExport        - adds the ability to export csv data from the model.
-* EventDispatcher        - adds the ability to export csv data from the model.
+* EventDispatcher        - adds CakeEvent dispatchers for all common Model callbacks.
 
 ### CsvExportBehavior ###
 
@@ -38,7 +38,7 @@ Export data and present as a file download from your controller
     
 ### EventDispatcherBehavior ###
 
-Uses the CakePHP 2.1 Events System  to dispatch events for all of the common Model callbacks.
+Uses the CakePHP 2.1 Events System to dispatch events for all of the common Model callbacks.
  
 Fired Events          
 
