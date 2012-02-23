@@ -47,7 +47,7 @@ class RevisionableBehavior extends ModelBehavior {
         $this->settings[$Model->alias]['tableName'] = str_replace( '{useTable}', Inflector::singularize( $Model->useTable ), $this->settings[$Model->alias]['tableName'] ); 
         $this->settings[$Model->alias]['className'] = ucfirst( str_replace( '{alias}', Inflector::singularize( $Model->alias ) , $this->settings[$Model->alias]['className'] ) ); 
         $this->settings[$Model->alias]['foreignKey'] = strtolower( str_replace( '{alias}', Inflector::singularize( $Model->alias ) , $this->settings[$Model->alias]['foreignKey'] ) ); 
-        pr( $this->settings );
+
     }
     
     public function cleanup( Model $Model ) {
