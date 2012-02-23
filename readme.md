@@ -141,7 +141,7 @@ Events Fired by this EventDispatcher behavior
 
 ## License ##
 
-Copyright 2011-2012, [Cake Development Corporation](http://pronique.com)
+Copyright 2011-2012, [PRONIUQE Software](http://pronique.com)
 
 Licensed under [The MIT License](http://www.opensource.org/licenses/mit-license.php)<br/>
 Redistributions of files must retain the above copyright notice.
