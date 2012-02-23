@@ -40,6 +40,22 @@ Export data and present as a file download from your controller
 
 Uses the CakePHP 2.1 Events System to dispatch events for all of the common Model callbacks.
  
+You can configure the EventDispatcher behavior using these options:
+
+* beforeFind
+* afterFind
+* beforeSave
+* afterSave
+* beforeDelete
+* afterDelete
+* beforeValidate
+
+Each of the above can be configured with three options
+
+* disable - Turn on/off Event dispatching for a specific callback, default false.
+* eventName - The event name dispatched, default Model.ModelName.callbackName.
+* onPropagationStop - Defines how a stopped event will be handled, default varies, see example below.
+
 Fired Events          
 
 * Model.{alias}.beforeFind     onPropagationStop = continue
@@ -55,7 +71,48 @@ change the behavior of the Model when an Event is canceled
 by a listener.
 
 Example Usage within your model
+    
     public $actsAs = array( 'ProUtils.EventDispatcher' );
+    
+Example Usage with all default configuration values
+
+    public $actsAs = array( 'ProUtils.EventDispatcher'=>array(
+        'beforeFind' => array(
+            'disable'=>false,
+            'eventName'=>'Model.{alias}.beforeFind',
+            'onStopPropagation'=>'continue'
+        ),
+        'afterFind' => array(
+            'disable'=>false,
+            'eventName'=>'Model.{alias}.afterFind',
+            'onStopPropagation'=>'continue'
+        ),
+        'beforeSave' => array(
+            'disable'=>false,
+            'eventName'=>'Model.{alias}.beforeSave',
+            'onStopPropagation'=>'abort'
+        ),
+        'afterSave' => array(
+            'disable'=>false,
+            'eventName'=>'Model.{alias}.afterSave',
+            'onStopPropagation'=>'continue'
+        ),
+        'beforeDelete' => array(
+            'disable'=>false,
+            'eventName'=>'Model.{alias}.beforeDelete',
+            'onStopPropagation'=>'abort'
+        ),
+        'afterDelete' => array(
+            'disable'=>false,
+            'eventName'=>'Model.{alias}.afterDelete',
+            'onStopPropagation'=>'continue'
+        ),
+        'beforeValidate' => array(
+            'disable'=>false,
+            'eventName'=>'Model.{alias}.beforeValidate',
+            'onStopPropagation'=>'abort'
+        )
+    ) );
     
 ## Libraries ##
 
