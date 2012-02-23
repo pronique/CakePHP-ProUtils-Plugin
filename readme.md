@@ -43,8 +43,8 @@ common Model callbacks.
  
 Event listeners that register for an Event will have access to the
 $Model instance as the $Event->subject(), and some callbacks also 
-present addition arguments dictated by the specific callback. For
-more info read http://book.cakephp.org/2.0/en/core-libraries/events.html
+present addition arguments dictated by the specific callback. Read
+more about CakePHP 2.1's Events System [here](http://book.cakephp.org/2.0/en/core-libraries/events.html)
 
 Config parameters can disable certain events alltogether, or change the
 behavior of the Model when an Event is canceled by a listener. 
