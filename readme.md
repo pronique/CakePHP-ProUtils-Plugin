@@ -149,9 +149,12 @@ column and for performance this column should be indexed.
 
 I plan to add the following features to Revisionable in the near future.
 
-* Finder methods
-* Revision limit, keep x number of past revisions
-* The option to only copy certain columns in revisions
+* Finder method(s) for getting at the revisions data
+* Rollback method(s) to revert current record to an older revision
+* Diff method(s) to compare revisions
+* Revision limit, keep x number of past revisions, keep revisions less than x days old
+* Save fields, the option to only copy certain columns into revisions
+* Trigger fields, only make a revision if certain fields are changed
 * CakePHP 2.1 event dispatchers so that other plugins can hook this Behavior
 
 ## Libraries ##
