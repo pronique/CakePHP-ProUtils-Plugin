@@ -56,8 +56,10 @@ class ProTemplateCompiler {
     * @return string
     */
     public function compile( $dataArr ) {
+        $dataArrFlat = Set::flatten($dataArr);
+
         $compiled_template = $this->template;
-        foreach( $dataArr as $key=>$val ) {
+        foreach( $dataArrFlat as $key=>$val ) {
             $compiled_template = preg_replace(
                 "/{\\$" . preg_quote($key) . "}/",
                 $val, 
