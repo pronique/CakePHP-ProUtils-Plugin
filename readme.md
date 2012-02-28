@@ -40,7 +40,54 @@ Export data and present as a file download from your controller
         $this->response->download( strtolower( Inflector::pluralize( $modelClass ) ) . '.csv' );
         $this->response->body( $this->$modelClass->exportCSV() );
     }
+
+### CustomSluggableBehavior ###
+
+Dynamic slugs using a combination of fields, additionally you can
+use fields from associated model data, or some attributes from the Model object.  
+
+'label' is constructed using variables like... 
     
+    '{$name}' or '{$id}' or '{$User.first_name} {$User.last_name}'.
+
+Example Usage within your model
+    
+```php
+public $actsAs = array( 'ProUtils.CustomSluggable'=>array(
+    'label'  => '{$name} {$Model::table}',
+    'slug' => 'slug', //database field to store the slug
+    'separator' => '_',
+    'length'=>255,
+    'unique'=>true,
+    'update'=>true
+) );
+```
+
+If you Users table looks like...
+    id, first_name, last_name, username, password, 'state', 'country'
+    1,Sam, White, swhite, ****, TX, USA
+
+Here are some example 'labels' and slug they will generate
+    
+    '{$username}'                                     // swhite
+    '{$id} {$username}'                               // on insert swhite, on update 1-swhite
+    '{$first_name} {$last_name}'                      // sam-white  
+    '{$first_name} {$last_name} {$state} {$country}'  // sam-white-tx-usa  
+
+In addition to using model data in the slug, the following variables are mapped to
+the Model instance attributes.
+
+{$Model::name}
+{$Model::alias}
+{$Model::displayField}
+{$Model::primaryKey}
+{$Model::name}
+{$Model::table}
+{$Model::tablePrefix}
+
+CustomSluggableBehavior acts like most other Sluggable Behaviors and is based on 
+SluggableBehavior in the cakedc/utils repo.
+
 ### EventDispatcherBehavior ###
 
 Uses the CakePHP 2.1 Events System to dispatch events for all of the
@@ -134,7 +181,7 @@ Events Fired by the EventDispatcher behavior
 
 ### RevisionableBehavior ###
 
-> Currently the RevisionableBehavior is not aware of multi record inserts, conside this unstable code for now.
+> Currently under developement!, RevisionableBehavior is not aware of multi record inserts, conside this unstable code for now.
 
 Example Usage within your model
     
