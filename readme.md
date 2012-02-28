@@ -171,7 +171,7 @@ This class can be used anywhere within CakePHP, the syntax for a variable is
 Example Usage
 
 ```php
-App::uses('ProTemplateCompiler', 'Lib');
+App::uses('ProTemplateCompiler', 'ProUtils.Lib');
 
 $template = 'Hello {$User.first_name} {$User.last_name}, this is an example of ProTemplateCompile.';
 $data = array( 'User'=> array( 'first_name'=>'John', 'last_name'=>'Doe' ) ;    
