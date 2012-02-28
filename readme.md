@@ -8,8 +8,9 @@ The ProUtils plugin is a growing collection of useful components, behaviors, hel
 
 ## Behaviors
 
-* CsvExport        - adds the ability to export csv data from the model.
-* EventDispatcher        - adds CakeEvent dispatchers for all common Model callbacks.
+* CsvExport           - adds the ability to export csv data from the model.
+* CustomSluggable     - dynamic slugs generated from multiple fields
+* EventDispatcher     - adds CakeEvent dispatchers for all common Model callbacks.
 * Revisionable        - maintains a versioned copy of each record change in another table.
 
 ### CsvExportBehavior ###
@@ -62,12 +63,13 @@ public $actsAs = array( 'ProUtils.CustomSluggable'=>array(
     'update'=>true
 ) );
 ```
-
+                                 
 If you Users table looks like...
+
     id, first_name, last_name, username, password, 'state', 'country'
     1,Sam, White, swhite, ****, TX, USA
 
-Here are some example 'labels' and slug they will generate
+Example of using variables in 'label' and slug generated
     
     '{$username}'                                     // swhite
     '{$id} {$username}'                               // on insert swhite, on update 1-swhite
