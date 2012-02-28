@@ -9,7 +9,7 @@ The ProUtils plugin is a growing collection of useful components, behaviors, hel
 ## Behaviors
 
 * CsvExport           - adds the ability to export csv data from the model.
-* CustomSluggable     - dynamic slugs generated from multiple fields
+* CustomSluggable     - dynamic slugs generated from multiple fieldsx
 * EventDispatcher     - adds CakeEvent dispatchers for all common Model callbacks.
 * Revisionable        - maintains a versioned copy of each record change in another table.
 
@@ -79,13 +79,13 @@ Example of using variables in 'label' and slug generated
 In addition to using model data in the slug, the following variables are mapped to
 the Model instance attributes.
 
-{$Model::name}
-{$Model::alias}
-{$Model::displayField}
-{$Model::primaryKey}
-{$Model::name}
-{$Model::table}
-{$Model::tablePrefix}
+    {$Model::name}
+    {$Model::alias}
+    {$Model::displayField}
+    {$Model::primaryKey}
+    {$Model::name}
+    {$Model::table}
+    {$Model::tablePrefix}
 
 CustomSluggableBehavior acts like most other Sluggable Behaviors and is based on 
 SluggableBehavior in the cakedc/utils repo.
