@@ -24,6 +24,14 @@ App::uses('AppController', 'Controller');
  
 class CrudAppController extends AppController {
 
+    protected $_crud = array(
+        'slug' => array(
+            'field'=>'slug',
+            'redirect'=>301,
+            'view'=>'view'
+        )
+    );
+    
 /**
  * abstracted index method
  *
@@ -55,8 +63,7 @@ class CrudAppController extends AppController {
  * @return void
  */
     public function slug($id = null) {
-        $slug_field = 'slug';
-        $redirect_code = 301;
+        $slug_field = $this->_crud['slug']['field'];
         $human_model = Inflector::humanize( $this->{$this->modelClass}->name );
         
         //find by id or slug
@@ -65,7 +72,7 @@ class CrudAppController extends AppController {
                 'conditions'=>array( 
                     'OR'=>array(
                         $this->modelClass . '.id'=> $id,
-                        $this->modelClass . '.' . $slug_field . ' LIKE'=> $id . '%'
+                        $this->modelClass . '.' . $this->_crud['slug']['field'] . ' LIKE'=> $id . '%'
                     )
                 )
             ) 
@@ -78,13 +85,16 @@ class CrudAppController extends AppController {
         //301 redirect on numeric id or partial slug match
         if ( !empty( $record[$this->modelClass][$slug_field] ) ) { 
             if ( $record[$this->modelClass][$slug_field] != $id  ) {
-                $this->redirect( array('action'=>'slug', $record[$this->modelClass][$slug_field]), $redirect_code );
+                $this->redirect( 
+                    array('action'=>'slug', $record[$this->modelClass][$slug_field]), 
+                    $this->_crud['slug']['redirect']
+                );
             }
         }
         
         $this->set( Inflector::variable( $this->modelClass ), $record );
         
-        $this->render('view');
+        $this->render( $this->_crud['slug']['view'] );
     }
     
  /**
