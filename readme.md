@@ -17,6 +17,9 @@ The ProUtils plugin is a growing collection of useful components, behaviors, hel
 
 * ProTemplateCompiler - Compile a document from a template and data array.
 
+## Documentation ##
+
+[ProUtils Wiki](https://github.com/pronique/CakePHP-ProUtils-Plugin/wiki)
 
 ## Installation ##
 
