@@ -13,6 +13,11 @@ The ProUtils plugin is a growing collection of useful components, behaviors, hel
 * EventDispatcher     - adds CakeEvent dispatchers for all common Model callbacks.
 * Revisionable        - maintains a versioned copy of each record change in another table.
 
+## Controllers 
+
+* CrudAppController   - extends AppController, and provides abstract index,view,add,edit,delete methods similar to a scaffold enable controller
+* CrudController      - same as CrudAppController, but is meant to be extended by AppController. 
+
 ## Libraries ##
 
 * ProTemplateCompiler - Compile a document from a template and data array.
