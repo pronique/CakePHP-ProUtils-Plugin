@@ -24,7 +24,7 @@ class ProTemplateCompiler {
     protected $rules = array();
     protected $tag = '{$tag}';
     
-    public function __construct( $template='', $rules='', $tag='' ) {
+    public function __construct( $template='', $rules=array(), $tag='' ) {
         $this->template = $template;
         if (!empty( $tag ) ) {
             $this->tag = $tag;    
